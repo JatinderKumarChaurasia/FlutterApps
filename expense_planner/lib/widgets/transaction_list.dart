@@ -32,64 +32,71 @@ class TransactionList extends StatelessWidget {
                 ),
               ],
             )
-          : ListView.builder(
-              itemBuilder: (context, index) {
-                return Card(
-                  margin: EdgeInsets.all(5.0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                  ),
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                          vertical: 15,
-                          horizontal: 15,
-                        ),
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Theme.of(context).primaryColor,
-                            width: 2.0,
-                          ),
-                        ),
-                        child: Text(
-                          '\$${transactions[index].amount.toStringAsFixed(2)}',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                              color: Theme.of(context).primaryColorDark),
-                        ),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(transactions[index].title,
-                              style: Theme.of(context).textTheme.title),
-                          Text(
-                            DateFormat.yMMMd().format(
-                              transactions[index].date,
-                            ),
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                );
-              },
-              itemCount: transactions.length,
-              physics: BouncingScrollPhysics(),
-//          children: transactions.map(
-//            (transaction) {
-//
-//            },
-//          ).toList(),
-            ),
+          : ListView.builder(itemBuilder: (context, index) {
+              return ListTile(
+                leading: CircleAvatar(
+                  backgroundColor: Colors.amber,
+                  radius: 30,
+                  child: Text('\$${transactions[index].amount}'),
+                ),
+              );
+            }),
     );
   }
 }
+//
+//return Card(
+//margin: EdgeInsets.all(5.0),
+//shape: RoundedRectangleBorder(
+//borderRadius: BorderRadius.all(
+//Radius.circular(10),
+//),
+//),
+//child: Row(
+//children: <Widget>[
+//Container(
+//margin: EdgeInsets.symmetric(
+//vertical: 15,
+//horizontal: 15,
+//),
+//padding: EdgeInsets.all(10),
+//decoration: BoxDecoration(
+//border: Border.all(
+//color: Theme.of(context).primaryColor,
+//width: 2.0,
+//),
+//),
+//child: Text(
+//'\$${transactions[index].amount.toStringAsFixed(2)}',
+//style: TextStyle(
+//fontWeight: FontWeight.bold,
+//fontSize: 20,
+//color: Theme.of(context).primaryColorDark),
+//),
+//),
+//Column(
+//crossAxisAlignment: CrossAxisAlignment.start,
+//children: <Widget>[
+//Text(transactions[index].title,
+//style: Theme.of(context).textTheme.title),
+//Text(
+//DateFormat.yMMMd().format(
+//transactions[index].date,
+//),
+//style: TextStyle(
+//color: Colors.grey,
+//),
+//),
+//],
+//),
+//],
+//),
+//);
+//},
+//itemCount: transactions.length,
+//physics: BouncingScrollPhysics(),
+////          children: transactions.map(
+////            (transaction) {
+////
+////            },
+////          ).toList(),
